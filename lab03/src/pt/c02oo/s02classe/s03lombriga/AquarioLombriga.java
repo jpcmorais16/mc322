@@ -6,15 +6,29 @@ public class AquarioLombriga{
     int tamLombriga;
     int posicaoFim;
     String lado;
+    boolean iniciada = false;
 
 
 
     public AquarioLombriga(int tamAquario, int tamLombriga, String lado, int posicaoCabeca) {
 
         this.tamAquario = tamAquario;
+        
         this.tamLombriga =  tamLombriga;
+        
+        if(tamLombriga > tamAquario)
+        	this.tamLombriga = tamAquario;
+
+        
+        
+        
         this.lado = lado;
+        
         this.posicaoCabeca = posicaoCabeca;
+        
+        if(!(0 < posicaoCabeca) || !(posicaoCabeca <= tamAquario))
+        	this.posicaoCabeca = 1;
+        
         if(lado.equals("esquerda")) {
         	
         	posicaoFim = posicaoCabeca + tamLombriga - 1;
@@ -31,6 +45,17 @@ public class AquarioLombriga{
     public String apresenta() {
     	
     	String desenho = "";
+    	
+    	if(iniciada == false) {
+    		
+    		for(int i=1; i <= tamAquario; i++) {
+    			desenho += "=";
+    			
+    			
+    		}
+    		return desenho;
+    	
+    	}
     	
     	for(int i=1; i <= tamAquario; i++) {
     		
@@ -80,16 +105,21 @@ public class AquarioLombriga{
     
     public void mover() {
     	
-    	if(lado.equals("esquerda")) {
+    	if(lado.equals("esquerda") && posicaoCabeca  > 1) {
     		posicaoCabeca -= 1;
     		posicaoFim -= 1;
     		return;
     		
     		
     	}
-    	posicaoCabeca += 1;
-    	posicaoFim += 1;
     	
+    	else if(lado.equals("direita") && posicaoCabeca < tamAquario) {
+    		posicaoCabeca += 1;
+    		posicaoFim += 1;
+    		return;
+    	}
+    	
+    	virar();
     	
     }
     
@@ -106,6 +136,14 @@ public class AquarioLombriga{
     		
     	}
     	lado = "esquerda";
+    	
+    	
+    	
+    }
+    
+    public void iniciar() {
+    	iniciada = true;
+    	
     	
     	
     	

@@ -5,6 +5,7 @@ public class Animacao {
 	String stringAnimacao;
 	int estagioAnimacao = 6;
 	AquarioLombriga lomb ;
+	boolean iniciou = false;
 
 	public Animacao(String stringAnimacao) {
 		String aux1 = "";
@@ -38,6 +39,11 @@ public class Animacao {
 	
 	public void passo() {
 		
+		if(lomb.iniciada == false) {
+			lomb.iniciar();
+			return;
+		}
+		
 		
 		try{
 			if(stringAnimacao.charAt(estagioAnimacao) == 'C') 
@@ -52,14 +58,11 @@ public class Animacao {
 			estagioAnimacao += 1;
 		}
 		
-		catch(Exception e){
-			
-			System.out.println("A animação já foi concluída");
-			
-				
-		}
+		catch(Exception e){}
 		
-	}
+			return;
+		
+		}
 		
 	public String apresenta() {
 		
