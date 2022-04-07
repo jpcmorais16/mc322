@@ -2,4 +2,4 @@
 
 ## Notebook sobre java estruturas
 
-[Resolução](/notebooks)
+[Resolução](notebooks)
