@@ -130,8 +130,7 @@ public class Tabuleiro {
 				&& posComida.ocupada == true) {
 			
 			
-			posSaida.peca.come(posComida.peca);
-			posSaida.peca.move(posChegada);
+			posSaida.peca.comer(posComida.peca, posChegada);
 			
 			return;
 			

@@ -11,25 +11,22 @@ public class Peca {
 	}
 	
 		
-	void come(Peca peca) {
+	void comer(Peca peca, Posicao nova) {
 		
 		
 		if(peca.viva) {
 						
 			peca.morre();
 			
-		}	
-	}
-	
-	void move(Posicao nova) {
-		
+		}
+
 		this.desocupaPosicao();
 		this.posicao = nova;
 		
 		nova.conectaPeca(this);
-		
-		
+
 	}
+	
 	
 	
 	
